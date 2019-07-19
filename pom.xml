@@ -17,7 +17,11 @@
 
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
 
+        <driver>chrome</driver>
+        <domain>https://epam.github.io/JDI/</domain>
+
         <allure.version>2.12.1</allure.version>
+        <allure.maven>2.9</allure.maven>
         <aspectj.version>1.8.10</aspectj.version>
 
         <cucumber.version>1.2.5</cucumber.version>
@@ -26,13 +30,12 @@
     <profiles>
 
         <profile>
-            <id>splitted-test-add-and-substract</id>
+            <id>hw7</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/split_test_add_and_substract.xml
-                </suite.xml>
+                <suite.xml>hw7.xml</suite.xml>
             </properties>
         </profile>
 
@@ -58,6 +61,24 @@
             <artifactId>lombok</artifactId>
             <version>1.18.8</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.9</version>
         </dependency>
 
     </dependencies>
@@ -95,7 +116,19 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
     </build>
 
 

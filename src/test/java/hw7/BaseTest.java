@@ -24,7 +24,7 @@ public class BaseTest {
     }
 
     @Test
-    public void loginTest() {
+    public void exerciseTest() {
         SiteJDI.open();
         SiteJDI.homePage.login(Users.PITER);
         SiteJDI.homePage.isOpened();
