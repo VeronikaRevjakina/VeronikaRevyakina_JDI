@@ -77,6 +77,4 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
             metalsDropdown.select(metal.getMetal());
         }
     }
-
-
 }
