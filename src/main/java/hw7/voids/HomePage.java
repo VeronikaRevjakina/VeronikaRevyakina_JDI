@@ -26,6 +26,7 @@ public class HomePage extends WebPage {
     }
 
     public void clickHeaderMenuButton(Menu menuItem) {
+        // TODO This is completely prohibited to use raw selenium calls in PO method directly !
         $("//*[@class='uui-navigation nav navbar-nav m-l8']" +
                 "//a[contains(.,'" + menuItem.getName() + "')]").click();
     }

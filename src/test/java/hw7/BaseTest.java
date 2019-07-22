@@ -31,6 +31,7 @@ public class BaseTest {
         SiteJDI.homePage.checkLoggedin(Users.PITER);
         SiteJDI.homePage.clickHeaderMenuButton(Menu.METALS_AND_COLORS);
         SiteJDI.metalsAndColorsPage.isOpened();
+        // TODO Pay attention on code convention, you should not start ne line from method arguments.
         SiteJDI.metalsAndColorsPage.fillMetalsAndColorsForm
                 (MetalsAndColorsData.DATA);
         SiteJDI.metalsAndColorsPage.submitMetalsAndColorsForm();

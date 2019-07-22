@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 
 public class MetalsAndColorsPage extends WebPage {
 
+    // TODO This element should belongs to the form.
     @Css("#submit-button")
     private Button submit;
 
@@ -26,6 +27,7 @@ public class MetalsAndColorsPage extends WebPage {
                 (By.xpath(".//li[contains(string(),'" + option + "')]"));
     }
 
+    // TODO It will be better to encapsulate this calls to M______m. (fill the gap)
     public void fillMetalsAndColorsForm(MetalsAndColorsData data) {
         metalsAndColorsForm.selectSummaryByValue(data.getSummary());
         metalsAndColorsForm.selectColorsByEnumValue(data.getColors());
@@ -37,7 +39,12 @@ public class MetalsAndColorsPage extends WebPage {
     public void submitMetalsAndColorsForm() {
         submit.click();
     }
+    // !TODO
 
+    // TODO The certain sequence of log's rows doesn't matter in this case.
+    // It will be easier to compare just two List<strings>
+    // First list you can generate from MetalsAndColors instance
+    // Second list can be generated from Log ui-element
     public void checkResultsBlockOutput(MetalsAndColorsData testDataObject) {
         if (testDataObject.getSummary() != null) {
             int result = 0;
@@ -82,7 +89,6 @@ public class MetalsAndColorsPage extends WebPage {
 
             }
         }
+        // !TODO
     }
-
-
 }
