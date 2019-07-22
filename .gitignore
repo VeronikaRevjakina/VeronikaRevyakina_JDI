@@ -1,5 +1,7 @@
+**/.idea
+*.iml
 **/target
 **/build
 **/allure-results
 *.log
-# TODO This file should be improved !
+# TODO This file should be improved !--Fixed

@@ -12,9 +12,7 @@ import org.openqa.selenium.By;
 
 public class MetalsAndColorsPage extends WebPage {
 
-    // TODO This element should belongs to the form.
-    @Css("#submit-button")
-    private Button submit;
+    // TODO This element should belongs to the form.--Fixed
 
     @Css("ul[class='panel-body-list results'] ")
     private UIElement resultBlock;
@@ -27,21 +25,21 @@ public class MetalsAndColorsPage extends WebPage {
                 (By.xpath(".//li[contains(string(),'" + option + "')]"));
     }
 
-    // TODO It will be better to encapsulate this calls to M______m. (fill the gap)
+    // TODO It will be better to encapsulate this calls to M______m. (fill the gap)--Skype??
     public void fillMetalsAndColorsForm(MetalsAndColorsData data) {
         metalsAndColorsForm.selectSummaryByValue(data.getSummary());
         metalsAndColorsForm.selectColorsByEnumValue(data.getColors());
         metalsAndColorsForm.selectForcesCheckboxByEnumValue(data.getElements());
         metalsAndColorsForm.selectMetalsByEnumValue(data.getMetals());
         metalsAndColorsForm.selectVegetablesByEnumValue(data.getVegetables());
+
+        metalsAndColorsForm.clickSubmitMetalsAndColors();
     }
 
-    public void submitMetalsAndColorsForm() {
-        submit.click();
-    }
+
     // !TODO
 
-    // TODO The certain sequence of log's rows doesn't matter in this case.
+    // TODO The certain sequence of log's rows doesn't matter in this case.--Skype
     // It will be easier to compare just two List<strings>
     // First list you can generate from MetalsAndColors instance
     // Second list can be generated from Log ui-element

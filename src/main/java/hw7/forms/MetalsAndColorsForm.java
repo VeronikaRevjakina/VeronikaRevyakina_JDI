@@ -6,6 +6,7 @@ import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
+import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.complex.RadioButtons;
 import hw7.entities.MetalsAndColorsData;
 import hw7.enums.CheckboxForces;
@@ -32,6 +33,9 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#even-selector > p")
     private RadioButtons summaryEven;
 
+    @Css("#submit-button")
+    private Button submit;
+
     @JDropdown(root = "div[ui=combobox]",
             value = ".filter-option",
             list = "li",
@@ -51,6 +55,10 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
                 summaryOdd.select(value);
             }
         }
+    }
+
+    public void clickSubmitMetalsAndColors() {
+        submit.click();
     }
 
     public void selectForcesCheckboxByEnumValue(List<CheckboxForces> forces) {
