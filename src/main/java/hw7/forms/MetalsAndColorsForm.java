@@ -47,7 +47,17 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
             expand = ".caret")
     private Droplist vegetablesDropdown;
 
-    public void selectSummaryByValue(List<String> values) {
+    public void fillMetalsAndColorsForm(MetalsAndColorsData data) {
+        selectSummaryByValue(data.getSummary());
+        selectColorsByEnumValue(data.getColors());
+        selectForcesCheckboxByEnumValue(data.getElements());
+        selectMetalsByEnumValue(data.getMetals());
+        selectVegetablesByEnumValue(data.getVegetables());
+
+        submit.click();
+    }
+
+    private void selectSummaryByValue(List<String> values) {
         for (String value : values) {
             if (Integer.valueOf(value) % 2 == 0) {
                 summaryEven.select(value);
@@ -57,30 +67,30 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
         }
     }
 
-    public void clickSubmitMetalsAndColors() {
+    private void clickSubmitMetalsAndColors() {
         submit.click();
     }
 
-    public void selectForcesCheckboxByEnumValue(List<CheckboxForces> forces) {
+    private void selectForcesCheckboxByEnumValue(List<CheckboxForces> forces) {
         for (CheckboxForces force : forces) {
             forcesCheckbox.select(force.getForce());
         }
     }
 
-    public void selectColorsByEnumValue(List<DropdownColors> colors) {
+    private void selectColorsByEnumValue(List<DropdownColors> colors) {
         for (DropdownColors color : colors) {
             colorsDropdown.select(color.getColor());
         }
     }
 
-    public void selectVegetablesByEnumValue(List<Vegetables> vegetables) {
+    private void selectVegetablesByEnumValue(List<Vegetables> vegetables) {
         vegetablesDropdown.select(Vegetables.VEGETABLES.getVegetable());
         for (Vegetables vegetable : vegetables) {
             vegetablesDropdown.select(vegetable.getVegetable());
         }
     }
 
-    public void selectMetalsByEnumValue(List<RadioMetals> metals) {
+    private void selectMetalsByEnumValue(List<RadioMetals> metals) {
         for (RadioMetals metal : metals) {
             metalsDropdown.select(metal.getMetal());
         }
