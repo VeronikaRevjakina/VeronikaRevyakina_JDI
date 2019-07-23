@@ -6,7 +6,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
 import com.epam.jdi.light.ui.html.common.Label;
 import hw7.entities.Users;
-import hw7.enums.Menu;
+import hw7.enums.Pages;
 import hw7.forms.LoginForm;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
@@ -29,9 +29,10 @@ public class HomePage extends WebPage {
         userName.shouldBe().text(Matchers.equalTo(user.getFullName()));
     }
 
-    public void clickHeaderMenuButton(Menu menuItem) {
+    public void openPageByHeaderMenu(Pages page) {
         // TODO This is completely prohibited to use raw selenium calls in PO method directly !--Fixed
-        menu.find(By.xpath("//a[contains(.,'" + menuItem.getName() + "')]"))
+        // TODO It seems like you dont fix it, use JDI type element for this purpose.
+        menu.find(By.xpath("//a[contains(.,'" + page.getName() + "')]"))
                 .click();
     }
 }

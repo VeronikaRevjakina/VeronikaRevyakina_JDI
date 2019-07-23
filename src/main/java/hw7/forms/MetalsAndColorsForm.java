@@ -8,15 +8,15 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
 import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.complex.RadioButtons;
-import hw7.entities.MetalsAndColorsData;
-import hw7.enums.CheckboxForces;
-import hw7.enums.DropdownColors;
-import hw7.enums.RadioMetals;
+import hw7.entities.MetalsAndColors;
+import hw7.enums.Colors;
+import hw7.enums.Forces;
+import hw7.enums.Metals;
 import hw7.enums.Vegetables;
 
 import java.util.List;
 
-public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
+public class MetalsAndColorsForm extends Form<MetalsAndColors> {
 
     @JDropdown(root = "div[ui=dropdown]",
             value = ".filter-option",
@@ -47,52 +47,44 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
             expand = ".caret")
     private Droplist vegetablesDropdown;
 
-    public void fillMetalsAndColorsForm(MetalsAndColorsData data) {
-        selectSummaryByValue(data.getSummary());
-        selectColorsByEnumValue(data.getColors());
-        selectForcesCheckboxByEnumValue(data.getElements());
-        selectMetalsByEnumValue(data.getMetals());
-        selectVegetablesByEnumValue(data.getVegetables());
-
+    @Override
+    public void submit(MetalsAndColors metalsAndColors) {
+        selectSummaryByValue(metalsAndColors.getSummary());
+        selectColorsByEnumValue(metalsAndColors.getColor());
+        selectForcesCheckboxByEnumValue(metalsAndColors.getElements());
+        selectMetalsByEnumValue(metalsAndColors.getMetal());
+        selectVegetablesByEnumValue(metalsAndColors.getVegetables());
         submit.click();
     }
 
-    private void selectSummaryByValue(List<String> values) {
-        for (String value : values) {
-            if (Integer.valueOf(value) % 2 == 0) {
-                summaryEven.select(value);
+    private void selectSummaryByValue(List<Integer> values) {
+        for (Integer value : values) {
+            if (value % 2 == 0) {
+                summaryEven.select(Integer.toString(value));
             } else {
-                summaryOdd.select(value);
+                summaryOdd.select(Integer.toString(value));
             }
         }
     }
 
-    private void clickSubmitMetalsAndColors() {
-        submit.click();
-    }
-
-    private void selectForcesCheckboxByEnumValue(List<CheckboxForces> forces) {
-        for (CheckboxForces force : forces) {
+    private void selectForcesCheckboxByEnumValue(List<Forces> forces) {
+        for (Forces force : forces) {
             forcesCheckbox.select(force.getForce());
         }
     }
 
-    private void selectColorsByEnumValue(List<DropdownColors> colors) {
-        for (DropdownColors color : colors) {
-            colorsDropdown.select(color.getColor());
-        }
+    private void selectColorsByEnumValue(Colors color) {
+        colorsDropdown.select(color.getColor());
+    }
+
+    private void selectMetalsByEnumValue(Metals metal) {
+        metalsDropdown.select(metal.getMetal());
     }
 
     private void selectVegetablesByEnumValue(List<Vegetables> vegetables) {
         vegetablesDropdown.select(Vegetables.VEGETABLES.getVegetable());
         for (Vegetables vegetable : vegetables) {
             vegetablesDropdown.select(vegetable.getVegetable());
-        }
-    }
-
-    private void selectMetalsByEnumValue(List<RadioMetals> metals) {
-        for (RadioMetals metal : metals) {
-            metalsDropdown.select(metal.getMetal());
         }
     }
 }

@@ -1,6 +1,6 @@
 package hw7.enums;
 
-public enum Menu {
+public enum Pages {
     HOME("Home"),
     CONTACT_FORM("Contact form"),
     SERVICE("Service"),
@@ -8,7 +8,7 @@ public enum Menu {
 
     final String name;
 
-    Menu(String name) {
+    Pages(String name) {
         this.name = name;
     }
 

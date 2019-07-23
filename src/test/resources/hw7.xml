@@ -3,7 +3,7 @@
 
     <test name="hw7">
         <classes>
-            <class name="hw7.BaseTest">
+            <class name="hw7.MetalsAndColorsTest">
                 <methods>
                     <include name="exerciseTest"/>
                 </methods>

@@ -1,6 +1,6 @@
 package hw7.enums;
 
-public enum RadioMetals {
+public enum Metals {
     GOLD("Gold"),
     SILVER("Silver"),
     BRONZE("Bronze"),
@@ -8,7 +8,7 @@ public enum RadioMetals {
 
     final String metal;
 
-    RadioMetals(String metal) {
+    Metals(String metal) {
         this.metal = metal;
     }
 
