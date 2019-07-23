@@ -1,6 +1,6 @@
 package hw7.enums;
 
-public enum CheckboxForces {
+public enum Forces {
     WATER("Water"),
     EARTH("Earth"),
     FIRE("Fire"),
@@ -8,7 +8,7 @@ public enum CheckboxForces {
 
     final String force;
 
-    CheckboxForces(String force) {
+    Forces(String force) {
         this.force = force;
     }
 

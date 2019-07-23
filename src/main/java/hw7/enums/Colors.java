@@ -1,6 +1,6 @@
 package hw7.enums;
 
-public enum DropdownColors {
+public enum Colors {
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),
@@ -8,7 +8,7 @@ public enum DropdownColors {
 
     final String color;
 
-    DropdownColors(String color) {
+    Colors(String color) {
         this.color = color;
     }
 
