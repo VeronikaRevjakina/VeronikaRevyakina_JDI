@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Exercise1 JDI with DataProvider">
+
+    <test name="hw8">
+        <classes>
+            <class name="hw8.TestWithDataProvider">
+                <methods>
+                    <include name="exerciseTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
