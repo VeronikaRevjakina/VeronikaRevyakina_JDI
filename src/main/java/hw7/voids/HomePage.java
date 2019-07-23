@@ -3,6 +3,7 @@ package hw7.voids;
 import com.epam.jdi.light.elements.base.UIElement;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.simple.UI;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
 import com.epam.jdi.light.ui.html.common.Label;
 import hw7.entities.Users;
@@ -18,7 +19,7 @@ public class HomePage extends WebPage {
     @Css("#user-name")
     private Label userName;
 
-    @XPath("//*[@class='uui-navigation nav navbar-nav m-l8']")
+    @UI("//*[@class='uui-navigation nav navbar-nav m-l8']//a[contains(text(),'%s')]")
     private UIElement menu;
 
     public void login(Users user) {
@@ -31,8 +32,7 @@ public class HomePage extends WebPage {
 
     public void openPageByHeaderMenu(Pages page) {
         // TODO This is completely prohibited to use raw selenium calls in PO method directly !--Fixed
-        // TODO It seems like you dont fix it, use JDI type element for this purpose.
-        menu.find(By.xpath("//a[contains(.,'" + page.getName() + "')]"))
-                .click();
+        // TODO It seems like you dont fix it, use JDI type element for this purpose.--Fixed
+        menu.select(page.getName());
     }
 }
